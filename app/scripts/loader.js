@@ -192,6 +192,7 @@
         PubSub.call(this);
     }
     Loader.prototype = Object.create(PubSub.prototype);
+    Loader.prototype.constructor = Loader;
     Loader.prototype.add = function(name, url, type, options){
         if(!name || !url) throw new Error('No url passed to add loader to loader.');
         if(typeof type != 'string'){
