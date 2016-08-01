@@ -1,0 +1,221 @@
+@charset "UTF-8";
+/****** reset *****/
+html, body {
+  margin: 0;
+  padding: 0; }
+
+#wapWrap {
+  position: relative; }
+
+#wapWrap * {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-focus-ring-color: transparent;
+  focus-ring-color: transparent;
+  resize: none;
+  outline: 0; }
+
+#wapWrap *:before, #wapWrap *:after {
+  box-sizing: border-box; }
+
+#wapWrap a:focus {
+  outline: thin dotted; }
+
+#wapWrap a:active, #wapWrap a:hover {
+  outline: 0; }
+
+#wapWrap #loading {
+  text-align: center;
+  margin-top: 50%;
+  font-size: 20px;
+  position: static; }
+
+/****** reset *****/
+/****** 业务逻辑start *****/
+#wapWrap {
+  width: 10rem;
+  height: 42rem; }
+
+#wapWrap > div {
+  position: absolute; }
+
+#wapWrap a {
+  display: block;
+  position: absolute; }
+
+#wapWrap .bg {
+  top: 0;
+  left: 0;
+  opacity: 1; }
+
+#wapWrap .bg img {
+  width: 10rem; }
+
+#wapWrap .caketop {
+  top: 0;
+  right: 0; }
+
+#wapWrap .caketop img {
+  width: 9.89333rem; }
+
+#wapWrap .caketop a {
+  width: 5.52rem;
+  height: 4.22667rem;
+  top: 0;
+  left: 3.96rem; }
+
+#wapWrap .spoon {
+  top: 2.66667rem;
+  right: -0.33333rem; }
+
+#wapWrap .spoon img {
+  width: 2.73333rem; }
+
+#wapWrap .title {
+  left: 0.66667rem;
+  top: 4.70667rem; }
+
+#wapWrap .title img {
+  width: 4.8rem; }
+
+#wapWrap .shengqiao {
+  left: 3.93333rem;
+  top: 6.72rem; }
+
+#wapWrap .shengqiao img {
+  width: 5.86667rem; }
+
+#wapWrap .shengqiao canvas {
+  position: absolute;
+  width: 2.93333rem;
+  top: 0;
+  left: 0; }
+
+#wapWrap .shengqiao a {
+  width: 4.49333rem;
+  height: 3.42667rem;
+  top: 0;
+  left: 0; }
+
+#wapWrap .cakemid {
+  left: 0;
+  top: 10rem; }
+
+#wapWrap .cakemid img {
+  width: 5.26667rem; }
+
+#wapWrap .cakemid a {
+  width: 4.18667rem;
+  height: 3.73333rem;
+  top: 0.70667rem;
+  left: 0.45333rem; }
+
+#wapWrap .buy1 {
+  left: 5.38667rem;
+  top: 12rem; }
+
+#wapWrap .buy1 img {
+  width: 4.21333rem; }
+
+#wapWrap .buy1 a {
+  width: 2.93333rem;
+  height: 0.8rem;
+  right: 0;
+  bottom: 0;
+  background: url(http://edm.mcake.com/weifengwang/qixi/images/buy1_btn.png);
+  background-size: cover; }
+
+#wapWrap .buy1 a.disable {
+  background: url(http://edm.mcake.com/weifengwang/qixi/images/buy1_disable_btn.png);
+  background-size: cover; }
+
+#wapWrap .wine {
+  left: 0.4rem;
+  top: 16.26667rem; }
+
+#wapWrap .wine img {
+  width: 7.8rem; }
+
+#wapWrap .flow {
+  left: 6.46667rem;
+  top: 19.30667rem; }
+
+#wapWrap .flow img {
+  width: 3.53333rem; }
+
+#wapWrap .flat {
+  left: 0.56rem;
+  top: 21.73333rem; }
+
+#wapWrap .flat img {
+  width: 7.17333rem; }
+
+#wapWrap .flow2 {
+  left: 7.61333rem;
+  top: 24.90667rem; }
+
+#wapWrap .flow2 img {
+  width: 2.38667rem; }
+
+#wapWrap .flowers {
+  left: 4.29333rem;
+  top: 26.17333rem; }
+
+#wapWrap .flowers img {
+  width: 5.74667rem; }
+
+#wapWrap .buy2 {
+  left: 0.86667rem;
+  top: 29.76rem; }
+
+#wapWrap .buy2 img {
+  width: 5.16rem; }
+
+#wapWrap .buy2 a {
+  width: 3.14667rem;
+  height: 0.98667rem;
+  top: 2.14667rem;
+  left: 1.12rem; }
+
+#wapWrap .flow3 {
+  left: 7.82667rem;
+  top: 30.05333rem; }
+
+#wapWrap .flow3 img {
+  width: 2.17333rem; }
+
+#wapWrap .cakebox {
+  left: 2.98667rem;
+  top: 32.38667rem;
+  z-index: 8; }
+
+#wapWrap .cakebox img {
+  width: 7.01333rem; }
+
+#wapWrap .cakebox a {
+  width: 7.01333rem;
+  height: 7.37333rem;
+  top: 0.73333rem;
+  left: 0; }
+
+#wapWrap .rules {
+  width: 10rem;
+  bottom: 0;
+  text-align: center;
+  padding: 0.33333rem 0;
+  background: #e8eef6;
+  z-index: 9;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0); }
+
+#wapWrap .rules img {
+  width: 6.77333rem; }
+
+/****** 业务逻辑end *****/

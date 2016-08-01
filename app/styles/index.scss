@@ -1,0 +1,78 @@
+/****** reset *****/
+@function px2rem($n) {
+  @return ($n * 10 / 750) * 1rem; //设计稿一般都是750宽
+}
+
+html,body{margin:0; padding:0;}
+#wapWrap{position:relative;}
+#wapWrap *{  box-sizing: border-box;  background-repeat: no-repeat;  vertical-align: middle;  -webkit-tap-highlight-color: rgba(0,0,0,0);  tap-highlight-color: rgba(0,0,0,0);  -webkit-appearance: none;  -moz-appearance: none;  appearance: none;  -webkit-focus-ring-color: rgba(0,0,0,0);  focus-ring-color: rgba(0,0,0,0);  resize: none;  outline: 0;}
+#wapWrap *:before, #wapWrap *:after { box-sizing: border-box;}
+#wapWrap a:focus {outline: thin dotted;}
+#wapWrap a:active, #wapWrap a:hover {outline: 0;}
+#wapWrap #loading{text-align:center; margin-top:50%; font-size:20px; position:static;}
+/****** reset *****/
+
+
+
+
+/****** 业务逻辑start *****/
+#wapWrap{width:px2rem(750); height:px2rem(3150)}
+#wapWrap>div{position:absolute;}
+#wapWrap a{display:block; position:absolute;}
+
+#wapWrap .bg{top:0; left:0; opacity:1;}
+#wapWrap .bg img{width:px2rem(750);}
+
+#wapWrap .caketop{top:0; right:0;}
+#wapWrap .caketop img{width: px2rem(742);}
+#wapWrap .caketop a{width:px2rem(414); height: px2rem(317); top:0; left:px2rem(297)}
+
+#wapWrap .spoon{top:px2rem(200); right:px2rem(-25);}
+#wapWrap .spoon img{width: px2rem(205);}
+
+#wapWrap .title{left:px2rem(50); top:px2rem(353);}
+#wapWrap .title img{width:px2rem(360);}
+
+#wapWrap .shengqiao{left:px2rem(295); top:px2rem(504);}
+#wapWrap .shengqiao img{width:px2rem(440)}
+#wapWrap .shengqiao canvas{position:absolute; width:px2rem(220); top:0; left:0;}
+#wapWrap .shengqiao a{width:px2rem(337); height:px2rem(257); top:0; left:0;}
+
+#wapWrap .cakemid{left:0; top:px2rem(750);}
+#wapWrap .cakemid img{width:px2rem(395);}
+#wapWrap .cakemid a{width:px2rem(314); height:px2rem(280); top:px2rem(53); left:px2rem(34);}
+
+#wapWrap .buy1{left:px2rem(404); top:px2rem(900);}
+#wapWrap .buy1 img{width:px2rem(316);}
+#wapWrap .buy1 a{width:px2rem(220); height:px2rem(60); right:0; bottom:0; background:url(http://edm.mcake.com/weifengwang/qixi/images/buy1_btn.png); background-size:cover;}
+#wapWrap .buy1 a.disable{background:url(http://edm.mcake.com/weifengwang/qixi/images/buy1_disable_btn.png); background-size:cover;}
+
+#wapWrap .wine{left:px2rem(30); top:px2rem(1220);}
+#wapWrap .wine img{width:px2rem(585);}
+
+#wapWrap .flow{left:px2rem(485); top:px2rem(1448);}
+#wapWrap .flow img{width:px2rem(265);}
+
+#wapWrap .flat{left:px2rem(42); top:px2rem(1630);}
+#wapWrap .flat img{width:px2rem(538);}
+
+#wapWrap .flow2{left:px2rem(571); top:px2rem(1868);}
+#wapWrap .flow2 img{width:px2rem(179);}
+
+#wapWrap .flowers{left:px2rem(322); top:px2rem(1963);}
+#wapWrap .flowers img{width:px2rem(431);}
+
+#wapWrap .buy2{left:px2rem(65); top:px2rem(2232);}
+#wapWrap .buy2 img{width:px2rem(387);}
+#wapWrap .buy2 a{width:px2rem(236); height:px2rem(74); top:px2rem(161); left:px2rem(84)}
+
+#wapWrap .flow3{left:px2rem(587); top:px2rem(2254);}
+#wapWrap .flow3 img{width:px2rem(163);}
+
+#wapWrap .cakebox{left:px2rem(224); top:px2rem(2429); z-index:8;}
+#wapWrap .cakebox img{width:px2rem(526);}
+#wapWrap .cakebox a{width:px2rem(526); height:px2rem(553); top:px2rem(55); left:0;}
+
+#wapWrap .rules{width:10rem; bottom:0; text-align:center; padding:px2rem(25) 0; background:#e8eef6; z-index:9; opacity:1; -webkit-transform: translate(0,0); transform: translate(0,0)}
+#wapWrap .rules img{width:px2rem(508);}
+/****** 业务逻辑end *****/

@@ -1,0 +1,39 @@
+{
+  "name": "mcake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-ftp": "^1.1.0",
+    "gulp-html-replace": "^1.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-tinypng-compress": "latest",
+    "gulp-uglify": "^1.5.4",
+    "gulp-webserver": "^0.9.1",
+    "run-sequence": "^1.2.2"
+  },
+  "buildConfig": {
+    "basePath": "http://edm.mcake.com/weifengwang/test/",
+    "buildCSS": ["app/styles/index.css"], //页面上用到的CSS文件,按照顺序放置
+    "buildJS": ["app/scripts/flexible.js", "app/scripts/zepto.js", "app/scripts/loader.js", "app/scripts/resdata.js", "app/scripts/index.js"],  //页面上用到的JS文件,按照顺序放置
+    "resourcePath": "app/scripts/resdata.js", //资源文件配置路径
+    "tinypngKey": "**********************************************************",
+    "serverPort": 8001,
+    "ftp": {
+      "host": "114.215.171.178",
+      "user": "**********************************************************",
+      "pass": "**********************************************************",
+      "remotePath": "**********************************************************"
+    }
+  }
+}
