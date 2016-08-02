@@ -24,9 +24,9 @@
   },
   "buildConfig": {
     "basePath": "http://edm.mcake.com/weifengwang/test/",
-    "buildCSS": ["app/styles/index.css"], //页面上用到的CSS文件,按照顺序放置
-    "buildJS": ["app/scripts/flexible.js", "app/scripts/zepto.js", "app/scripts/loader.js", "app/scripts/resdata.js", "app/scripts/index.js"],  //页面上用到的JS文件,按照顺序放置
-    "resourcePath": "app/scripts/resdata.js", //资源文件配置路径
+    "buildCSS": ["app/styles/index.css"],
+    "buildJS": ["app/scripts/flexible.js", "app/scripts/zepto.js", "app/scripts/loader.js", "app/scripts/resdata.js", "app/scripts/index.js"],
+    "resourcePath": "app/scripts/resdata.js",
     "tinypngKey": "**********************************************************",
     "serverPort": 8001,
     "ftp": {

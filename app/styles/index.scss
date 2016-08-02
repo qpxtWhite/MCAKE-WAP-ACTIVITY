@@ -16,7 +16,7 @@ html,body{margin:0; padding:0;}
 
 
 /****** 业务逻辑start *****/
-#wapWrap{width:px2rem(750); height:px2rem(3150)}
+#wapWrap{width:px2rem(750); height:px2rem(3150); overflow:hidden;}
 #wapWrap>div{position:absolute;}
 #wapWrap a{display:block; position:absolute;}
 

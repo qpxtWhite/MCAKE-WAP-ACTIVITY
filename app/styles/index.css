@@ -40,7 +40,8 @@ html, body {
 /****** 业务逻辑start *****/
 #wapWrap {
   width: 10rem;
-  height: 42rem; }
+  height: 42rem;
+  overflow: hidden; }
 
 #wapWrap > div {
   position: absolute; }

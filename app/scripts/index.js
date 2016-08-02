@@ -44,33 +44,22 @@ function getTPL(data) {
 
 /*** 业务逻辑start ***/
 function drawCanvas(){
-    var frames = [
-        {"x":116,"y":88,"w":90,"h":99,"offX":9,"offY":8,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":117,"y":0,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.2},
-        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5},
-        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":0.5}
-    ]
+    var framesData = {frameRate: 10, frames:[
+        {"x":116,"y":88,"w":90,"h":99,"offX":9,"offY":8,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":117,"y":0,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":2},
+        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":0,"w":115,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5},
+        {"x":0,"y":88,"w":114,"h":86,"offX":16,"offY":21,"sourceW":169,"sourceH":143,"duration":5}
+    ]}
     var img = document.getElementById('canvasImg');
-    var ix = 0;
     var canvas = document.getElementById('shengqiao');
-    var ctx = canvas.getContext('2d');
-    drawImg();
-    function drawImg(){
-        var frame = frames[ix];
-        ctx.clearRect(0,0,169,143)
-        ctx.drawImage(img, frame.x, frame.y, frame.w, frame.h, frame.offX, frame.offY, frame.w, frame.h);
-        ix++;
-        if(ix==frames.length){
-            ix = 0;
-        }
-        setTimeout(drawImg, frame.duration*1000)
-    }
+    var mc = new MovieClip(canvas, img, framesData);
+    mc.play();
 }
 function start(){
     drawCanvas();
