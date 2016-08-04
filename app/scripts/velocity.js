@@ -3874,7 +3874,7 @@
         });
 
         return Velocity;
-    }((window.Zepto || window.jQuery || window), window, document);
+    }((window.jQuery || window.Zepto || window), window, document);
 }));
 
 /******************

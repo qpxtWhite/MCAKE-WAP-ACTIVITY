@@ -145,43 +145,87 @@
         }
     }
     var DATATYPE = {
-        IMAGE: 'image'
+        IMAGE: 'image',
+        JSON: 'json'
     }
 
     var REG = {
-        IMAGE: /\.(jpg|png|gif)$/
+        IMAGE: /\.(jpg|png|gif)$/,
+        JSON: /\.(json)$/
     }
     function getTypeByUrl(url){
-        if(REG.IMAGE.test(url)) return DATATYPE.IMAGE
+        if(REG.IMAGE.test(url)) return DATATYPE.IMAGE;
+        if(REG.JSON.test(url)) return DATATYPE.JSON;
         return null;
     }
 
     var Resource = {
-        loadAsset: function(url, type, success, fail){
-            if(typeof type=='function') fail=success, success=type, type=undefined
-            if(typeof type!='string') type = getTypeByUrl(url)
-            switch(type){
+        loadAsset: function(data, success, fail){
+            var source = {};
+            if(typeof data ==='string'){
+                source.url = data;
+                typeof success === 'string' ? (source.type = success, success = fail, fail = arguments[3]) : (source.type = getTypeByUrl(data));
+            } else {
+                data.type = typeof data.type === 'string' ? data.type : getTypeByUrl(data.type);
+                source = data;
+            }
+            switch(source.type){
                 case DATATYPE.IMAGE:
-                    this.loadImage(url, success, fail);
+                    this.loadImage(source, success, fail);
+                    break;
+                case DATATYPE.JSON:
+                    this.loadJson(source, success, fail);
                     break;
                 default:
                     console.log('type not support')
-                    fail && fail(url);
+                    fail && fail(source);
                     break;
             }
         },
-        loadImage: function(url, success, fail){
+        ajax: function(data){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                try{
+                    if(xhr.readyState ===  XMLHttpRequest.DONE){
+                        if(xhr.status === 200){
+                            data.success && data.success(xhr.responseText);
+                        } else {
+                            data.error && data.error();
+                        }
+                    }
+                } catch(e){
+                    data.error && data.error();
+                }
+
+            }
+            xhr.open('GET', data.url);
+            xhr.send();
+        },
+        loadJson: function(data, success, fail){
+            this.ajax({
+                url: data.url,
+                success: function(d){
+                    data.data = JSON.parse(d);
+                    success && success(data);
+                },
+                error: function(){
+                    fail && fail(data);
+                }
+            })
+        },
+        loadImage: function(data, success, fail){
             var img = new Image();
             img.onload = function(){
                 img.onload = new Function;
-                success && success(img);
+                data.data = img;
+                success && success(data);
             }
             img.onerror = function(){
                 img.onerror = new Function;
                 console.log('load fail')
-                fail && fail(url)
+                fail && fail(data)
             }
-            img.src = url;
+            img.src = data.url;
         }
     }
 
@@ -201,14 +245,15 @@
         }
         if(isArray(url)) return this.addGroup(name, url, options);
         return this.resources[name] = {
-            url: url,
-            type: type,
+            url: this.baseUrl + url,
+            type: typeof type === 'string' ? type : getTypeByUrl(url),
             name: name
         }, this;
     }
     Loader.prototype.addGroup = function(name, data, options){
         if(!name || !data) throw new Error('No url passed to add loader to loader.');
         return this.groups[name] = data.map(function(item){
+            item.url = this.baseUrl + item.url, item.type = typeof item.type==='string' ? item.type : getTypeByUrl(item.url);
             this.resources[item.name] = item;
             return item.name;
         }, this), this;
@@ -217,7 +262,7 @@
         if(!(name in this.resources)) return this.loadGroup(name, options);
         var self = this,
             res = this.resources[name];
-        return Resource.loadAsset(this.baseUrl + res.url, res.type, function(){
+        return Resource.loadAsset(res, function(){
             self.trigger('complete', name);
         }), this;
     }
@@ -228,14 +273,14 @@
             loaded = 0,
             self = this,
             data = this.resources[group[loaded]];
-        return Resource.loadAsset(this.baseUrl + data.url, data.type, function(){
+        return Resource.loadAsset(data, function(d){
             loaded++;
             self.trigger('progress', name, loaded, total);
             if(loaded == total){
                 self.trigger('complete', name, total)
             } else {
-                data = self.resources[group[loaded]]
-                Resource.loadAsset(self.baseUrl + data.url, data.type, arguments.callee);
+                data = self.resources[group[loaded]];
+                Resource.loadAsset(data, arguments.callee);
             }
         }), this;
     }
