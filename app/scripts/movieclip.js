@@ -1,4 +1,4 @@
-(function (root, factory) {
+;(function (root, factory) {
     if(typeof define === "function" && define.amd) {
         define('MovieClip', ['PubSub'], function(PubSub){
             return factory(root, PubSub);
@@ -10,9 +10,7 @@
     }
 }(this, function(global, PubSub) {
     if(typeof PubSub==='undefined') return alert('MovieClip依赖pubsub模块'),null;
-    function log(){
-        console.log.apply(console, arguments)
-    }
+
     var requestAnimationFrame = window.requestAnimationFrame
         || window.webkitRequestAnimationFrame
         || window.mozRequestAnimationFrame
@@ -79,7 +77,7 @@
         if(num<0) num = this.frames.length-1;
         this.ctx.clearRect(0,0,this.width, this.height);
         var frame = this.frames[num];
-        this.ctx.drawImage(this.img, frame.x, frame.y, frame.w, frame.h, frame.offX, frame.offX, frame.w, frame.h);
+        this.ctx.drawImage(this.img, frame.x, frame.y, frame.w, frame.h, frame.offX, frame.offY, frame.w, frame.h);
         this.currentFrame = num;
     }
     proto.initEvent = function(){
