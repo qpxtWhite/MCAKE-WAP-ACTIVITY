@@ -68,11 +68,17 @@ gulp.task('html-build', function(){
 			'css': buildConfig.basePath + 'styles/index.css',
 			'js': buildConfig.basePath + 'scripts/index.js'
 		}))
+		.pipe(replace(/images\/.*\.(png|jpg)/g, function(res){
+			return buildConfig.basePath + res;
+		}))
 		.pipe(gulp.dest('build/'))
 })
 
 gulp.task('css-build', function(){
 	return gulp.src(buildConfig.buildCSS)
+		.pipe(replace(/\.\.\/images\/.*\.(png|jpg)/g, function(res){
+			return res.replace('../', buildConfig.basePath);
+		}))
 		.pipe(concat('index.css'))
 		.pipe(cssmin())
 		.pipe(gulp.dest('build/styles/'))
