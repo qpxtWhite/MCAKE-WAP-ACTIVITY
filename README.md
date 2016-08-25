@@ -1,5 +1,12 @@
 # MCAKE-WAP-ACTIVITY
 MCAKE WAP端活动模板
+### CSS
+采用淘宝的flexible写页面，可以直接根据PSD的尺寸来写css<br>
+比如在PSD中，图片宽度为200px，则在index.scss中这样写：
+```css
+width:px2rem(200)
+```
+然后执行gulp命令gulp sass或者gulp sass:watch，将sass文件编译成css
 ### 资源加载
 详见demo [https://qpxtwhite.github.io/MCAKE-WAP-ACTIVITY/demo/index-template1.html](https://qpxtwhite.github.io/MCAKE-WAP-ACTIVITY/demo/index-template1.html)<br>
 资源配置文件可用白鹭的[ResDepot](http://www.egret.com/products/others.html#res-depot)制作
