@@ -1,0 +1,43 @@
+<!-- 滚动动画模板 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>七夕</title>
+    <!-- build:css -->
+    <link rel="stylesheet" href="styles/index-template1.css">
+    <!-- endbuild-->
+</head>
+<body>
+
+<div id="wapWrap">
+    <div id="loading">0%</div>
+    <div id="iscroll" style="display:none;">
+        <div class="wrap">
+            <div class="bgblue"><img src="images/bgblue.jpg" alt=""></div>
+            <div class="bgred"><img src="images/bgred.jpg" alt=""></div>
+            <div class="fly1 fx-scrollAnimation" fx-scrollAnimation-x="300" fx-scrollAnimation-y="100"><canvas class="fx-movieClip" fx-movieClip-name="fly1" fx-movieClip-sprite="fly1_png" width="350" height="350"></canvas></div>
+            <div class="dog fx-scrollAnimation" fx-scrollAnimation-x="-300" fx-scrollAnimation-linkto=".wolf"><canvas class="fx-movieClip" width="127" height="77" fx-movieClip-name="dog" fx-movieClip-sprite="dog_png"></canvas></div>
+            <div class="tiger fx-scrollAnimation" fx-scrollAnimation-delay="1000"><img src="images/tiger.png" alt=""></div>
+            <div class="wolf fx-scrollAnimation" fx-scrollAnimation-linkfrom=".dog"><img src="images/wolf.png" alt=""></div>
+            <div class="flower fx-scrollAnimation" fx-scrollAnimation-delayAdjust="500"><canvas class="fx-movieClip" fx-movieClip-name="flower" fx-movieClip-sprite="flower_png" width="211" height="255"></canvas></div>
+            <div class="rule"><img src="images/rule.png" alt=""></div>
+        </div>
+    </div>
+</div>
+
+<!-- build:js -->
+<script src="../app/scripts/flexible.js"></script>
+<script src="../app/scripts/zepto.js"></script>
+<script src="../app/scripts/velocity.js"></script>
+<script src="../app/scripts/pubsub.js"></script>
+<script src="../app/scripts/loader.js"></script>
+<script src="scripts/resdata-template1.js"></script>
+<script src="../app/scripts/movieclip.js"></script>
+<script src="../app/scripts/fx_movieClip.js"></script>
+<script src="../app/scripts/iscroll.js"></script>
+<script src="../app/scripts/fx_scrollAnimation.js"></script>
+<script src="scripts/index-template1.js"></script>
+<!-- endbuild -->
+</body>
+</html>

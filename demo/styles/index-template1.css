@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/****** reset *****/
+html, body {
+  margin: 0;
+  padding: 0; }
+
+#wapWrap {
+  position: relative; }
+
+#wapWrap * {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-focus-ring-color: transparent;
+  focus-ring-color: transparent;
+  resize: none;
+  outline: 0; }
+
+#wapWrap *:before, #wapWrap *:after {
+  box-sizing: border-box; }
+
+#wapWrap a:focus {
+  outline: thin dotted; }
+
+#wapWrap a:active, #wapWrap a:hover {
+  outline: 0; }
+
+#wapWrap #loading {
+  text-align: center;
+  margin-top: 50%;
+  font-size: 20px;
+  position: static; }
+
+#wapWrap {
+  width: 10rem;
+  overflow: hidden; }
+  #wapWrap .wrap {
+    width: 10rem;
+    position: relative; }
+  #wapWrap .wrap > div {
+    position: absolute; }
+  #wapWrap .wrap a {
+    display: block;
+    position: absolute; }
+
+/****** reset *****/
+/****** 业务逻辑start *****/
+#wapWrap .wrap {
+  height: 49.33333rem; }
+
+#wapWrap .bgblue {
+  top: 0;
+  left: 0; }
+  #wapWrap .bgblue img {
+    width: 10rem; }
+
+#wapWrap .bgred {
+  left: 0;
+  top: 18.06667rem; }
+  #wapWrap .bgred img {
+    width: 10rem; }
+
+#wapWrap .rule {
+  width: 10rem;
+  height: 4.66667rem;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  background: #f5f5f5; }
+  #wapWrap .rule img {
+    width: 6.41333rem;
+    margin-top: 0.66667rem; }
+
+#wapWrap .fly1 {
+  left: 2.66667rem;
+  top: 0; }
+  #wapWrap .fly1 canvas {
+    width: 4.66667rem; }
+
+#wapWrap .flower {
+  top: 40rem;
+  left: 0; }
+  #wapWrap .flower canvas {
+    width: 2.81333rem; }
+
+#wapWrap .dog {
+  top: 20rem;
+  left: 4rem; }
+  #wapWrap .dog canvas {
+    width: 1.69333rem; }
+
+#wapWrap .tiger {
+  top: 10.13333rem;
+  left: 5.33333rem; }
+  #wapWrap .tiger img {
+    width: 2.38667rem; }
+
+#wapWrap .wolf {
+  top: 26.66667rem;
+  left: 5.33333rem; }
+  #wapWrap .wolf img {
+    width: 2.30667rem; }
+
+/****** 业务逻辑end *****/

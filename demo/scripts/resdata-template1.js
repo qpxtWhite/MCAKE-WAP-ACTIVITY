@@ -1,0 +1,32 @@
+var resData = [
+    {
+        "name":"bgblue_jpg",
+        "type":"image",
+        "url":"images/bgblue.jpg"
+    },
+    {
+        "name":"bgred_jpg",
+        "type":"image",
+        "url":"images/bgred.jpg"
+    },
+    {
+        "name":"fly1_png",
+        "type":"image",
+        "url":"images/fly1.png"
+    },
+    {
+        "name":"flower_png",
+        "type":"image",
+        "url":"images/flower.png"
+    },
+    {
+        "name":"dog_png",
+        "type":"image",
+        "url":"images/dog.png"
+    },
+    {
+        "name":"tiger_png",
+        "type":"image",
+        "url":"images/tiger.png"
+    }
+]

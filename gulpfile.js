@@ -42,31 +42,34 @@ gulp.task('tinypng', function () {
 });
 
 gulp.task('server', function() {
-	gulp.src('app')
+	gulp.src(buildConfig.server.path || 'app')
 		.pipe(webserver({
 			host: getIP(),
 			directoryListing: false,
 			livereload: false,
 			open: true,
-			port: buildConfig.serverPort || 8001
+			port: buildConfig.server.port || 8001
 		}));
 });
 
 gulp.task('sass', function(){
-	gulp.src('app/styles/index.scss')
+
+	gulp.src(buildConfig.sass)
 		.pipe(sass().on('error', sass.logError))
-		.pipe(gulp.dest('app/styles'))
+		.pipe(gulp.dest(function(file){
+			return file.base;
+		}))
 })
 
 gulp.task('sass:watch', function(){
-	gulp.watch('app/styles/index.scss', ['sass']);
+	gulp.watch(buildConfig.sass, ['sass']);
 })
 
 gulp.task('html-build', function(){
-	return gulp.src('app/index.html')
+	return gulp.src(buildConfig.buildHTML)
 		.pipe(htmlreplace({
 			'css': buildConfig.basePath + 'styles/index.css',
-			'js': buildConfig.basePath + 'scripts/index.js'
+			'js': buildConfig.basePath + 'scripts/index-template1.js'
 		}))
 		.pipe(replace(/images\/.*\.(png|jpg)/g, function(res){
 			return buildConfig.basePath + res;

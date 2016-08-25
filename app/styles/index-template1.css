@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/****** reset *****/
+html, body {
+  margin: 0;
+  padding: 0; }
+
+#wapWrap {
+  position: relative; }
+
+#wapWrap * {
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-focus-ring-color: transparent;
+  focus-ring-color: transparent;
+  resize: none;
+  outline: 0; }
+
+#wapWrap *:before, #wapWrap *:after {
+  box-sizing: border-box; }
+
+#wapWrap a:focus {
+  outline: thin dotted; }
+
+#wapWrap a:active, #wapWrap a:hover {
+  outline: 0; }
+
+#wapWrap #loading {
+  text-align: center;
+  margin-top: 50%;
+  font-size: 20px;
+  position: static; }
+
+#wapWrap {
+  width: 10rem;
+  overflow: hidden; }
+  #wapWrap .wrap {
+    width: 10rem;
+    position: relative; }
+  #wapWrap .wrap > div {
+    position: absolute; }
+  #wapWrap .wrap a {
+    display: block;
+    position: absolute; }
+
+/****** reset *****/
+/****** 业务逻辑start *****/
+#wapWrap .wrap {
+  height: 49.46667rem; }
+
+/****** 业务逻辑end *****/

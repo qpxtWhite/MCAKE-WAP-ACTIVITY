@@ -25,10 +25,15 @@
   "buildConfig": {
     "basePath": "http://edm.mcake.com/weifengwang/test/",
     "buildCSS": ["app/styles/index.css"],
-    "buildJS": ["app/scripts/flexible.js", "app/scripts/zepto.js", "app/scripts/loader.js", "app/scripts/resdata.js", "app/scripts/index.js"],
+    "buildJS": ["app/scripts/flexible.js", "app/scripts/pubsub.js", "app/scripts/loader.js", "app/scripts/resdata.js", "app/scripts/index.js"],
+    "buildHTML": ["app/index.html"],
+    "sass": ["demo/styles/index-template1.scss"],
     "resourcePath": "app/scripts/resdata.js",
     "tinypngKey": "**********************************************************",
-    "serverPort": 8001,
+    "server": {
+      "path": "./",
+      "port": "8011"
+    },
     "ftp": {
       "host": "114.215.171.178",
       "user": "**********************************************************",

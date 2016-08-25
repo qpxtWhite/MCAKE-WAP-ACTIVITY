@@ -12,9 +12,9 @@
     if(typeof PubSub==='undefined') return alert('MovieClip依赖pubsub模块'),null;
 
     var requestAnimationFrame = window.requestAnimationFrame
-        || window.webkitRequestAnimationFrame
-        || window.mozRequestAnimationFrame
-        || function(callback){ return window.setTimeout(callback, 1000/60); },
+            || window.webkitRequestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || function(callback){ return window.setTimeout(callback, 1000/60); },
         cancelAnimationFrame = window.cancelAnimationFrame
             || window.webkitCancelAnimationFrame
             || window.mozCancelAnimationFrame
@@ -40,14 +40,16 @@
     Ticker.prototype.stop = function(){
         cancelAnimationFrame(this.timer);
     }
-    function MovieClip(canvas, img, frameData, repeatCount){
+    function MovieClip(canvas, img, frameData, options){
+        var opts = options || {};
         this.ctx = canvas.getContext('2d');
         this.width = parseInt(canvas.width);
         this.height = parseInt(canvas.height);
         this.frames = frameData.frames;
-        this.frameRate = frameData.frameRate;
+        this.frameRate = frameData.frameRate || 10;
         this.img = img;
-        this.repeatCount = repeatCount || 0;
+        this.repeatCount = opts.repeatCount || 0;
+        this.stopFrame = opts.stopFrame || 0;   //代表最后停留帧,first代表第一帧,last代表最后一帧;
         this.currentCount = 0;
         this.currentFrame = 0;
         this.ticker = new Ticker(this.frameRate);
@@ -70,14 +72,18 @@
     }
     proto.stop = function(){
         this.ticker.stop();
-        this.setFrame(0);
+        this.setFrame(this.stopFrame==='first' ? 0 : this.frames.length-1);
     }
     proto.setFrame = function(num){
         if(num>this.frames.length-1) num = 0;
         if(num<0) num = this.frames.length-1;
         this.ctx.clearRect(0,0,this.width, this.height);
         var frame = this.frames[num];
-        this.ctx.drawImage(this.img, frame.x, frame.y, frame.w, frame.h, frame.offX, frame.offY, frame.w, frame.h);
+        if(this.img){
+            this.ctx.drawImage(this.img, frame.x, frame.y, frame.w, frame.h, frame.offX, frame.offY, frame.w, frame.h);
+        } else {
+            this.ctx.drawImage(frame.img, 0, 0);
+        }
         this.currentFrame = num;
     }
     proto.initEvent = function(){
@@ -101,7 +107,7 @@
             if(this.currentFrame==0){
                 this.currentCount++;
             }
-            if(this.repeatCount!= 0 && this.currentCount>=this.repeatCount){
+            if(this.repeatCount!= 0 && this.currentCount==this.repeatCount){
                 this.stop();
             }
         }
